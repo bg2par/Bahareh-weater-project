@@ -17,7 +17,25 @@ function refreshWeather(response) {
     windSpeedElement.innerHTML = `${response.data.wind.speed}km/h`;
     temperatureElement.innerHTML = Math.round(temperature);
     iconElement.innerHTML = `<img src="${response.data.condition.icon_url}" class="weather-app-icon" />`;
-    backgroundImage.style['background-image']= "('src/images.mist.jpg')black";
+    if(response.data.condition.description == "clear sky"){
+        backgroundImage.style.backgroundImage =  "url('src/images/clear sky.jpg')";
+      }
+      else if(response.data.condition.description == "mist" || "smoke" || "	haze" || "fog" || "tornado"){
+        backgroundImage.style.backgroundImage =  "url('src/images/mist.jpg')";
+      }
+      else if(response.data.condition.description == "rain" || "light rain" || "shower rain" || "	moderate rain" || "very heavy rain" || "extreme rain" || "freezing rain" ){
+        backgroundImage.style.backgroundImage =  "url('src/images/rain.jpg')";
+      }
+      else if(response.data.condition.description == "thunderstorm" || "light thunderstorm" || "thunderstorm with light rain" || "thunderstorm with rain"){
+        backgroundImage.style.backgroundImage =  "url('src/images/thunderstorm.jpg')";
+      }
+      else if(response.data.condition.description == "snow" || "light snow" || "heavy snow" || "light rain and snow" || "rain and snow" || "light shower snow"){
+        backgroundImage.style.backgroundImage =  "url('src/images/snow.jpg')";
+      }
+      else if(response.data.condition.description == "scattered clouds" || "broken clouds" || "overcast clouds" || "few clouds"){
+        backgroundImage.style.backgroundImage =  "url('src/images/clouds.jpg')";
+      }
+    }
 }
 function formatDate(date) {
     let minutes = date.getMinutes();
