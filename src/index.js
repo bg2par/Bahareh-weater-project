@@ -37,7 +37,6 @@ function formatDate(date) {
   
     return `${day} ${hours}:${minutes}`;
   }
-  alert("hi");
 function searchCity(city) {
     let apiKey = "b2a5adcct04b33178913oc335f405433";
     let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}`;
@@ -50,3 +49,4 @@ function handleSearchSubmit(event) {
   }
 let searchFormElement = document.querySelector("#search-form");
 searchFormElement.addEventListener("submit", handleSearchSubmit);
+searchCity("tehran");
