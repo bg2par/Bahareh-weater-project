@@ -18,26 +18,26 @@ function refreshWeather(response) {
     temperatureElement.innerHTML = Math.round(temperature);
     iconElement.innerHTML = `<img src="${response.data.condition.icon_url}" class="weather-app-icon" />`;
     if(response.data.condition.description == "clear sky"){
-        backgroundImage.style.backgroundImage =  "url('src/images/clear sky.jpg')";
-      }
-      else if(response.data.condition.description == "mist" || "smoke" || "	haze" || "fog" || "tornado"){
-        backgroundImage.style.backgroundImage =  "url('src/images/mist.jpg')";
-      }
-      else if(response.data.condition.description == "rain" || "light rain" || "shower rain" || "	moderate rain" || "very heavy rain" || "extreme rain" || "freezing rain" ){
-        backgroundImage.style.backgroundImage =  "url('src/images/rain.jpg')";
-      }
-      else if(response.data.condition.description == "thunderstorm" || "light thunderstorm" || "thunderstorm with light rain" || "thunderstorm with rain"){
-        backgroundImage.style.backgroundImage =  "url('src/images/thunderstorm.jpg')";
-      }
-      else if(response.data.condition.description == "snow" || "light snow" || "heavy snow" || "light rain and snow" || "rain and snow" || "light shower snow"){
-        backgroundImage.style.backgroundImage =  "url('src/images/snow.jpg')";
-      }
-      else if(response.data.condition.description == "scattered clouds" || "broken clouds" || "overcast clouds" || "few clouds"){
-        backgroundImage.style.backgroundImage =  "url('src/images/clouds.jpg')";
-      }
+      backgroundImage.style.backgroundImage =  "url('src/images/clear sky.jpg')";
     }
-}
-function formatDate(date) {
+    else if(response.data.condition.description == "mist" || "smoke" || "	haze" || "fog" || "tornado"){
+      backgroundImage.style.backgroundImage =  "url('src/images/mist.jpg')";
+    }
+    else if(response.data.condition.description == "rain" || "light rain" || "shower rain" || "	moderate rain" || "very heavy rain" || "extreme rain" || "freezing rain" ){
+      backgroundImage.style.backgroundImage =  "url('src/images/rain.jpg')";
+    }
+    else if(response.data.condition.description == "thunderstorm" || "light thunderstorm" || "thunderstorm with light rain" || "thunderstorm with rain"){
+      backgroundImage.style.backgroundImage =  "url('src/images/thunderstorm.jpg')";
+    }
+    else if(response.data.condition.description == "snow" || "light snow" || "heavy snow" || "light rain and snow" || "rain and snow" || "light shower snow"){
+      backgroundImage.style.backgroundImage =  "url('src/images/snow.jpg')";
+    }
+    else if(response.data.condition.description == "scattered clouds" || "broken clouds" || "overcast clouds" || "few clouds"){
+      backgroundImage.style.backgroundImage =  "url('src/images/clouds.jpg')";
+    }
+  }
+  
+  function formatDate(date) {
     let minutes = date.getMinutes();
     let hours = date.getHours();
     let days = [
@@ -57,16 +57,22 @@ function formatDate(date) {
   
     return `${day} ${hours}:${minutes}`;
   }
-function searchCity(city) {
+  
+  function searchCity(city) {
     let apiKey = "b2a5adcct04b33178913oc335f405433";
     let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}`;
     axios.get(apiUrl).then(refreshWeather);
   }
-function handleSearchSubmit(event) {
+  
+  function handleSearchSubmit(event) {
     event.preventDefault();
     let searchInput = document.querySelector("#search-form-input");
+  
     searchCity(searchInput.value);
   }
-let searchFormElement = document.querySelector("#search-form");
-searchFormElement.addEventListener("submit", handleSearchSubmit);
-searchCity("tehran");
+  
+  let searchFormElement = document.querySelector("#search-form");
+  searchFormElement.addEventListener("submit", handleSearchSubmit);
+  
+  searchCity("Japan");
+  
