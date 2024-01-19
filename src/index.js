@@ -17,7 +17,7 @@ function refreshWeather(response) {
     windSpeedElement.innerHTML = `${response.data.wind.speed}km/h`;
     temperatureElement.innerHTML = Math.round(temperature);
     iconElement.innerHTML = `<img src="${response.data.condition.icon_url}" class="weather-app-icon" />`;
-    backgroundImage.innerHTML = `<img src= "src/images/mist.jpg"`;
+    backgroundImage.innerHTML = `<img src= "src/images/mist.jpg/>"`;
 }
 function formatDate(date) {
     let minutes = date.getMinutes();
