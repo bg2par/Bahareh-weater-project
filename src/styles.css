@@ -1,6 +1,9 @@
 body {
-    background-color: #f9f7fe;
     font-family: "Roboto", sans-serif;
+    height: 100%;
+    background-repeat:no-repeat;
+    background-position:center center;
+    background-size: cover;
   }
   a {
     color: #885df1;
