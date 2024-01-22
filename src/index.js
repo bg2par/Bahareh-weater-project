@@ -111,4 +111,3 @@ function formatDay(timestamp) {
   searchFormElement.addEventListener("submit", handleSearchSubmit);
   
   searchCity("Japan");
-  displayForecast();
